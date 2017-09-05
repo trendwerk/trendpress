@@ -1,0 +1,89 @@
+/**
+ * Color definition
+ */
+$red: rgb(204, 0, 0);
+
+$black: black;
+$extra-dark-grey: rgb(51, 51, 51);
+$dark-grey: rgb(102, 102, 102);
+$medium-grey: rgb(153, 153, 153);
+$light-grey: rgb(204, 204, 204);
+$extra-light-grey: rgb(238, 238, 238);
+$white: white;
+
+/**
+ * Color implementation
+ */
+$primary-color: $extra-dark-grey;
+
+$heading-color: $extra-dark-grey;
+$text-color: $dark-grey;
+$text-light: $medium-grey;
+
+$link-color: $extra-dark-grey;
+$hover-color: $dark-grey;
+
+$light-background: $extra-light-grey;
+$border-color: $light-grey;
+
+/**
+ * Typography
+ */
+$heading-font: (
+  'Source Sans Pro',
+  sans-serif,
+);
+
+$text-font: (
+  'Source Sans Pro',
+  sans-serif,
+);
+
+$font-sizes: (
+  'base': (
+    'small': 1em,
+    'medium': 1.125em,
+  ),
+  'text-small': 0.9em,
+  'h1': 2em,
+  'h2': 1.5em,
+  'h3': 1.25em,
+  'h4': 1.1em,
+  'blockquote': 1.75em,
+);
+
+$text-margin: 2em;
+
+$line-height: (
+  'base': 2em,
+  'small': 1.5em,
+);
+
+/**
+ * Dimensions
+ */
+$box-padding: 30px;
+$content-width: 920px;
+$header-height: (
+  'toggle-navigation': 60px,
+  'full': 80px,
+);
+$margin-bottom-default: 100px;
+$wrapper: (
+  'padding': (
+    'small': 20px,
+    'medium': 40px,
+  ),
+  'width': 1280px,
+);
+
+/**
+ * Breakpoints
+ */
+$breakpoints: (
+  'small': 420px,
+  'medium': 640px,
+  'toggle-navigation': 900px,
+  'large': 980px,
+  'huge': map-get($wrapper, 'width'),
+);
