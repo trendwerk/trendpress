@@ -1,9 +1,9 @@
 @mixin button() {
   @include hover((
-    'background-color': shade($primary-color, 25%),
+    'background-color': shade($extra-dark-grey, 25%),
     'color': $white,
   ));
-  background-color: $primary-color;
+  background-color: $extra-dark-grey;
   border: 0; // Remove border from button inputs
   border-radius: 0; // Fix for buttons on iOS
   color: $white;

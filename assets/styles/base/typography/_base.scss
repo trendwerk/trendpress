@@ -5,7 +5,7 @@ html {
 body {
   $base: map-get($font-sizes, 'base');
 
-  color: $text-color;
+  color: $dark-grey;
   font-family: $text-font;
   font-size: map-get($base, 'small');
   line-height: map-get($line-height, 'base');

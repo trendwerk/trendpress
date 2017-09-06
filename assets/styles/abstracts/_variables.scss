@@ -1,5 +1,5 @@
 /**
- * Color definition
+ * Colors
  */
 $red: rgb(204, 0, 0);
 
@@ -10,21 +10,6 @@ $medium-grey: rgb(153, 153, 153);
 $light-grey: rgb(204, 204, 204);
 $extra-light-grey: rgb(238, 238, 238);
 $white: white;
-
-/**
- * Color implementation
- */
-$primary-color: $extra-dark-grey;
-
-$heading-color: $extra-dark-grey;
-$text-color: $dark-grey;
-$text-light: $medium-grey;
-
-$link-color: $extra-dark-grey;
-$hover-color: $dark-grey;
-
-$light-background: $extra-light-grey;
-$border-color: $light-grey;
 
 /**
  * Typography
