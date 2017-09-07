@@ -1,8 +1,6 @@
 /**
  * Colors
  */
-$red: rgb(204, 0, 0);
-
 $black: black;
 $extra-dark-grey: rgb(51, 51, 51);
 $dark-grey: rgb(102, 102, 102);
@@ -47,13 +45,11 @@ $line-height: (
 /**
  * Dimensions
  */
-$box-padding: 30px;
 $content-width: 920px;
 $header-height: (
   'toggle-navigation': 60px,
   'full': 80px,
 );
-$margin-bottom-default: 100px;
 $wrapper: (
   'padding': (
     'small': 20px,
