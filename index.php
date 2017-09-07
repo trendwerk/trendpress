@@ -9,8 +9,9 @@ if (is_archive()) {
 }
 
 $context['description'] = get_the_archive_description('<div class="archive-description">', '</div>');
-$context['pagination'] = Timber::get_pagination(array(
+
+$context['pagination'] = Timber::get_pagination([
     'mid_size' => 1,
-));
+]);
 
 Timber::render('index.twig', $context);
