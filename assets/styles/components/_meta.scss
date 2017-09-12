@@ -1,12 +1,12 @@
 .meta {
-  color: $medium-grey;
+  color: $grey;
   font-size: map-get($font-sizes, 'text-small');
 
   a {
-    color: $medium-grey;
+    color: $grey;
 
     &:hover {
-      color: $dark-grey;
+      color: $grey-dark;
     }
   }
 }

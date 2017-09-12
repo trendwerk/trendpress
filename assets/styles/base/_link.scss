@@ -1,11 +1,11 @@
 a {
   $padding: 5px;
 
-  color: $extra-dark-grey;
+  color: $grey-extra-dark;
   outline: 0;
 
   &:hover {
-    color: $dark-grey;
+    color: $grey-dark;
   }
 
   &.read-more::after,

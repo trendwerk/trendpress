@@ -17,15 +17,15 @@
 
   a {
     @include hover((
-      'background-color': $extra-dark-grey,
+      'background-color': $grey-extra-dark,
       'color': $white,
     ));
-    background: $extra-light-grey;
-    color: $dark-grey;
+    background: $grey-extra-light;
+    color: $grey-dark;
   }
 
   .current {
-    background: $light-grey;
+    background: $grey-light;
   }
 
   .prev {
