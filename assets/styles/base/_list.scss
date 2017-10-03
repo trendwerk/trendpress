@@ -1,6 +1,6 @@
 ul,
 ol {
-  line-height: map-get($line-height, 'large');
+  line-height: map-get($line-height, 'base');
   list-style-position: outside;
   margin: 0 0 $text-margin;
 
