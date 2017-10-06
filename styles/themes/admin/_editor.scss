@@ -1,0 +1,30 @@
+.wp-editor {
+  margin: 20px;
+
+  .aligncenter,
+  .alignleft,
+  .alignnone,
+  .alignright {
+    float: none;
+  }
+
+  .alignleft {
+    @media(min-width: 800px) {
+      float: left;
+    }
+
+    @include min-width('huge') {
+      margin-left: 0;
+    }
+  }
+
+  .alignright {
+    @media(min-width: 800px) {
+      float: right;
+    }
+
+    @include min-width('huge') {
+      margin-right: 0;
+    }
+  }
+}

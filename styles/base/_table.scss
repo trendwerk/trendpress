@@ -1,0 +1,31 @@
+table {
+  border: 1px solid $grey-light;
+  border-bottom: 0;
+  display: inline-block;
+  margin: 0 0 $text-margin;
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+
+  @include min-width('large') {
+    overflow-x: hidden;
+    white-space: normal;
+  }
+
+  tr:nth-child(even) {
+    background: $grey-extra-light;
+  }
+
+  th,
+  td {
+    border-bottom: 1px solid $grey-light;
+    line-height: map-get($line-height, 'small');
+    padding: 0.5em 0.75em;
+    text-align: left;
+  }
+
+  th {
+    background: $grey-extra-dark;
+    color: $white;
+  }
+}

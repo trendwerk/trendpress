@@ -1,0 +1,9 @@
+@mixin wrapper-padding() {
+  $wrapper-padding: map-get($wrapper, 'padding');
+
+  padding: 0 map-get($wrapper-padding, 'small');
+
+  @include min-width('medium') {
+    padding: 0 map-get($wrapper-padding, 'medium');
+  }
+}

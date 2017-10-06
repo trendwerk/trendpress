@@ -1,0 +1,70 @@
+@include placeholder();
+
+label {
+  color: $grey-extra-dark;
+  font-weight: 600;
+}
+
+input,
+select,
+textarea,
+button {
+  outline: 0; // Remove blue glow
+}
+
+input:not([type="button"]),
+input:not([type="checkbox"]),
+input:not([type="file"]),
+input:not([type="radio"]),
+input:not([type="submit"]),
+select,
+textarea {
+  appearance: none; // Remove built-in browser/device styling
+  background: $white;
+  border: 1px solid $grey-light;
+  border-radius: 0;
+  display: block;
+  font-size: 16px; // Disable iOS zoom on focus
+  height: 3em;
+  padding: 0 15px;
+
+  @include min-width('medium') {
+    font-size: 14px;
+  }
+
+  &:focus {
+    border: 1px solid shade($grey-light, 20%);
+  }
+}
+
+[type="button"],
+[type="submit"],
+button {
+  @include button();
+}
+
+select {
+  &[multiple] {
+    height: auto;
+    max-height: 200px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+  }
+
+  &:not([multiple]) {
+    background: url('data:image/png;base64,R0lGODlhDQAEAIAAAAAAAP8A/yH5BAEHAAEALAAAAAANAAQAAAILhA+hG5jMDpxvhgIAOw==') no-repeat right 10px center;
+  }
+
+  option {
+    padding: 5px 10px;
+  }
+}
+
+textarea {
+  line-height: map-get($line-height, 'base');
+  max-width: 100%; // Android bug
+  min-height: 200px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  resize: vertical;
+}

@@ -1,0 +1,17 @@
+.post {
+  @include full-width();
+  @include responsive-margin-bottom();
+
+  &.sticky {
+    background: $grey-extra-light;
+    padding: 30px;
+  }
+
+  h2 {
+    margin-bottom: 0;
+  }
+
+  p:last-of-type {
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,60 @@
+.pagination {
+  @include full-width();
+  text-align: center;
+
+  a,
+  .current {
+    display: inline-block;
+    font-size: map-get($font-sizes, 'text-small');
+    font-weight: 600;
+    height: 3em;
+    line-height: 3em;
+    margin: 0 10px 10px 0;
+    min-width: 3em;
+    padding: 0 1em;
+    text-decoration: none;
+  }
+
+  a {
+    @include hover((
+      'background-color': $grey-extra-dark,
+      'color': $white,
+    ));
+    background: $grey-extra-light;
+    color: $grey-dark;
+  }
+
+  .current {
+    background: $grey-light;
+  }
+
+  .prev {
+    float: left;
+
+    @include min-width('medium') {
+      float: none;
+    }
+  }
+
+  .next {
+    float: right;
+    margin-right: 0;
+
+    @include min-width('medium') {
+      float: none;
+    }
+  }
+
+  .dots,
+  .page-number {
+    display: none;
+
+    @include min-width('medium') {
+      display: inline-block;
+    }
+  }
+
+  .dots {
+    margin: 0 15px 0 5px;
+  }
+}

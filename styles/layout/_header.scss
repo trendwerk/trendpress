@@ -1,0 +1,21 @@
+.header {
+  @include full-width();
+  @include toggle-navigation((
+    'height': map-get($header-height, 'toggle-navigation'),
+    'item': '.menu-item',
+    'menu': '.main-navigation',
+    'until': map-get($breakpoints, 'toggle-navigation'),
+  ));
+  background-color: $grey-extra-dark;
+  height: map-get($header-height, 'toggle-navigation');
+  z-index: 1;
+
+  @include min-width('toggle-navigation') {
+    height: map-get($header-height, 'full');
+  }
+
+  a {
+    color: $white;
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,36 @@
+.aligncenter,
+.alignleft,
+.alignnone,
+.alignright {
+  $image-margin: 40px;
+
+  display: block;
+  margin: 0 0 $image-margin;
+
+  &.aligncenter,
+  &.alignnone {
+    margin: 0 auto $image-margin;
+  }
+
+  &.alignleft {
+    @media(min-width: 800px) {
+      float: left;
+      margin: 10px $image-margin $image-margin 0;
+    }
+
+    @include min-width('huge') {
+      margin-left: -180px;
+    }
+  }
+
+  &.alignright {
+    @media(min-width: 800px) {
+      float: right;
+      margin: 10px 0 $image-margin $image-margin;
+    }
+
+    @include min-width('huge') {
+      margin-right: -180px;
+    }
+  }
+}

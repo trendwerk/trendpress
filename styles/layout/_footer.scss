@@ -1,0 +1,54 @@
+.footer {
+  @include full-width();
+  background-color: $grey-extra-dark;
+  color: $white;
+  font-size: map-get($font-sizes, 'text-small');
+  line-height: map-get($line-height, 'base');
+  padding: 25px 0;
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    color: $white;
+    font-weight: 600;
+    text-decoration: none;
+
+    &:active,
+    &:focus,
+    &:hover {
+      color: $grey;
+      text-decoration: underline;
+    }
+  }
+
+  .copyright {
+    text-align: center;
+
+    @include min-width('medium') {
+      float: left;
+    }
+  }
+
+  nav {
+    text-align: center;
+
+    @include min-width('medium') {
+      float: right;
+    }
+
+    ul {
+      @include list-style-none();
+    }
+
+    li {
+      display: inline;
+      margin: 0 5px;
+
+      @include min-width('medium') {
+        margin: 0 0 0 20px;
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+a {
+  $padding: 5px;
+
+  color: $grey-extra-dark;
+  outline: 0;
+
+  &:hover {
+    color: $grey-dark;
+  }
+
+  &.read-more::after,
+  &.prev::before,
+  &.next::after {
+    display: inline-block;
+  }
+
+  &.prev::before {
+    content: '«';
+    padding-right: $padding;
+  }
+
+  &.next::after,
+  &.read-more::after {
+    content: '»';
+    padding-left: $padding;
+  }
+}
