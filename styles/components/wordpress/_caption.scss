@@ -6,5 +6,6 @@
 .wp-caption-text {
   font-size: map-get($font-sizes, 'text-small');
   font-style: italic;
+  line-height: map-get($line-height, 'small');
   width: 100%;
 }
