@@ -1,6 +1,6 @@
 .footer {
   @include full-width();
-  background-color: $grey-extra-dark;
+  background-color: $extra-dark-grey;
   color: $white;
   font-size: map-get($font-sizes, 'text-small');
   line-height: map-get($line-height, 'base');
@@ -18,7 +18,7 @@
     &:active,
     &:focus,
     &:hover {
-      color: $grey;
+      color: $medium-grey;
       text-decoration: underline;
     }
   }

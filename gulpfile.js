@@ -1,15 +1,21 @@
 'use strict';
 
-const beep = require('beepbeep'),
+const gulp = require('gulp'),
       cache = require('gulp-cached'),
-      cssBase64 = require('gulp-css-base64'),
-      cssNano = require('gulp-cssnano'),
-      gulp = require('gulp'),
-      liveReload = require('gulp-livereload'),
+      beep = require('beepbeep'),
+      colors = require('colors'),
       plumber = require('gulp-plumber'),
+      liveReload = require('gulp-livereload'),
+
+      scssLint = require('gulp-scss-lint'),
       sass = require('gulp-sass'),
       sassGlob = require('gulp-sass-glob'),
-      webpack = require('webpack-stream');
+      cssNano = require('gulp-cssnano'),
+      cssBase64 = require('gulp-css-base64'),
+
+      webpack = require('webpack-stream'),
+
+      phpcs = require('gulp-phpcs');
 
 const files = {
   sass: ['assets/styles/**/*.scss'],
@@ -37,13 +43,25 @@ gulp.src = function() {
     }));
 };
 
-gulp.task('base64', () => {
+/**
+ * Tasks
+ */
+gulp.task('scssLint', () => {
+  return gulp.src(files.sass)
+    .pipe(cache('scssLint'))
+    .pipe(scssLint({
+      'config': 'config/lint/scss.yml'
+    }))
+    .pipe(scssLint.failReporter());
+});
+
+gulp.task('base64', ['scssLint'], () => {
   return gulp.src('node_modules/fancybox/dist/css/*.css')
     .pipe(cssBase64())
     .pipe(gulp.dest('node_modules/fancybox/dist/css/'));
 });
 
-gulp.task('sass', ['base64'], () => {
+gulp.task('sass', ['scssLint', 'base64'], () => {
   return gulp.src(files.sass)
     .pipe(sassGlob())
     .pipe(sass().on('error', sass.logError))
@@ -67,9 +85,15 @@ gulp.task('js', () => {
     .pipe(liveReload());
 });
 
-gulp.task('php', () => {
+gulp.task('phpcs', () => {
   return gulp.src(files.php)
-    .pipe(cache('php'))
+    .pipe(cache('phpcs'))
+    .pipe(phpcs({
+      bin: 'vendor/bin/phpcs',
+      standard: 'PSR2'
+    }))
+    .pipe(phpcs.reporter('log'))
+    .pipe(phpcs.reporter('fail'))
     .pipe(liveReload());
 });
 
@@ -79,11 +103,45 @@ gulp.task('twig', () => {
     .pipe(liveReload());
 });
 
+const welcomeMessage = [
+  '',
+  '',
+  '                     ________',
+  '                    //   |\\ \\\\',
+  '                   //    | \\ \\\\',
+  '             |\\\\  //     |  \\ \\\\  //|',
+  '             ||\\\\//       —-—  \\\\//||',
+  '             || \\/______________\\/ ||',
+  '             ||                    ||',
+  '             ||                    ||',
+  '             ||    ( )      ( )    ||',
+  '             ||        ____        ||',
+  '             ||        \\  /        ||',
+  '             ||         ||         ||',
+  '             ||     \\__/  \\__/     ||',
+  '             ||                    ||',
+  '             ||                    ||',
+  '',
+  '',
+  ' $$\\   $$\\  $$$$$$\\  $$\\       $$\\       $$$$$$\\',
+  ' $$ |  $$ |$$  __$$\\ $$ |      $$ |     $$  __$$\\',
+  ' $$ |  $$ |$$ /  $$ |$$ |      $$ |     $$ /  $$ |',
+  ' $$$$$$$$ |$$$$$$$$ |$$ |      $$ |     $$ |  $$ |',
+  ' $$  __$$ |$$  __$$ |$$ |      $$ |     $$ |  $$ |',
+  ' $$ |  $$ |$$ |  $$ |$$ |      $$ |     $$ |  $$ |',
+  ' $$ |  $$ |$$ |  $$ |$$$$$$$$\\ $$$$$$$$\\ $$$$$$  |',
+  ' \\__|  \\__|\\__|  \\__|\\________|\\________|\\______/',
+  '',
+  ''
+].join('\n');
+
 gulp.task('default', () => {
-  gulp.watch(files.sass, ['base64', 'sass']);
+  gulp.watch(files.sass, ['base64', 'scssLint', 'sass']);
   gulp.watch(files.js, ['js']);
-  gulp.watch(files.php, ['php']);
+  gulp.watch(files.php, ['phpcs']);
   gulp.watch(files.twig, ['twig']);
 
   liveReload.listen();
+
+  console.log(welcomeMessage.cyan);
 });

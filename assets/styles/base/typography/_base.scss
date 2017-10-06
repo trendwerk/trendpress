@@ -1,7 +1,11 @@
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
 body {
   $base: map-get($font-sizes, 'base');
 
-  color: $grey-dark;
+  color: $dark-grey;
   font-family: $text-font;
   font-size: map-get($base, 'small');
   line-height: map-get($line-height, 'base');
@@ -10,4 +14,8 @@ body {
   @include respond-to('medium') {
     font-size: map-get($base, 'medium');
   }
+}
+
+p {
+  margin: 0 0 $text-margin;
 }

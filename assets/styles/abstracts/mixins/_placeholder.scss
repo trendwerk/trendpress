@@ -1,6 +1,6 @@
 @mixin placeholder() {
-  $color: tint($grey-dark, 50%);
-  $color-focus: tint($grey-dark, 75%);
+  $color: tint($dark-grey, 50%);
+  $color-focus: tint($dark-grey, 75%);
 
   // scss-lint:disable PseudoElement
   ::-moz-input-placeholder {
